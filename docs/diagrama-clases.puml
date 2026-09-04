@@ -1,0 +1,73 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package personas {
+    class Persona {
+        - edad: byte
+        # nombre: String
+        + lugarNacimiento: String
+        - poder: IPower
+        + realizarTrabajo(): void
+        + setPoder(poder: IPower): void
+        + usarPoder(): void
+    }
+}
+
+package profesiones {
+    class Doctor {
+        - specialty: String
+        - cobroPorConsulta: int
+        - cantidadConsultas: int
+        + cobro(cobroPorConsulta: int, cantidadConsultas: int): int
+    }
+
+    class Administrador {
+        - area: String
+        - salario: int
+        - cantidadTrabajados: int
+        + cobro(salario: int, cantidadTrabajados: int): int
+    }
+
+    class Repartidor {
+        - tipoVehiculo: String
+        - cobroPorEntrega: int
+        - cantidadEntregas: int
+        + cobro(cobroPorEntrega: int, cantidadEntregas: int): int
+    }
+}
+
+package poderes {
+    interface IPower {
+        + usarPoder(): void
+    }
+
+    class PoderDiagnostico
+    class PoderEntregaRapida
+    class PoderOrganizacion
+    class Podercurarcion
+    class Podervolar
+}
+
+package programaMutante {
+    class quickstart {
+        + main(args: String[]): void
+    }
+}
+
+Doctor --|> Persona
+Administrador --|> Persona
+Repartidor --|> Persona
+Persona --> IPower : poder
+
+PoderDiagnostico ..|> IPower
+PoderEntregaRapida ..|> IPower
+PoderOrganizacion ..|> IPower
+Podercurarcion ..|> IPower
+Podervolar ..|> IPower
+
+quickstart ..> Persona : crea y usa
+quickstart ..> Doctor : crea
+quickstart ..> Administrador : crea
+quickstart ..> Repartidor : crea
+quickstart ..> IPower : asigna
+@enduml
