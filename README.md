@@ -8,6 +8,10 @@ El programa crea personas con las profesiones de doctor, administrador y reparti
 
 La clase de inicio es `programaMutante.quickstart`.
 
+## Ejercicio bancario: identidades y procesadores
+
+La explicación del diseño, los cálculos y el diagrama de clases Mermaid están en [docs/README-bancario.md](docs/README-bancario.md). El archivo fuente del diagrama está en [docs/diagrama-bancario.mmd](docs/diagrama-bancario.mmd).
+
 ## Estructura
 
 ```text
